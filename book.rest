@@ -1,0 +1,32 @@
+### GET all books
+GET http://localhost:3000/books
+
+### GET book by ID (insert ID)
+
+GET http://localhost:3000/books/
+
+### POST to add a book to database
+
+POST http://localhost:3000/books
+Content-Type: application/json
+
+{ 
+    "title": "Bible",
+    "authorFirstName": "Prophets",
+    "authorLastName": "Of Old",
+    "genre": "nonFiction",
+    "publishedDate": "12-25-1611",
+    "pages": "1200",
+    "readStatus": "false"
+}
+
+### PUT to update readStatus of a book (insert ID)
+PUT http://localhost:3000/books/
+Content-Type: application/json
+
+{ 
+    "readStatus": "true"
+}
+
+### DELETE book (insert ID)
+DELETE http://localhost:3000/books/
