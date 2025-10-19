@@ -14,6 +14,15 @@ Users can perform CRUD operations on a collection of books — such as adding, v
 
 ---
 
+## ✅ Recent Updates
+- Added **input validation** using **express-validator** to ensure all required book fields are correctly formatted before saving.
+- Implemented robust **error handling** across all routes to **return** helpful messages and **proper HTTP status codes (400, 404, 500).**
+- **Enhanced Swagger documentation to include validation requirements and possible error responses for each route.**
+- Configured **Swagger to auto-generate swagger.json on server startup** for easier sharing and version control.
+- **Verified PUT and DELETE routes in MongoDB** to ensure correct database updates and deletions.
+
+---
+
 ## 🛠️ Tech Stack
 - **Node.js** / **Express.js**
 - **MongoDB Atlas** + **Mongoose**
