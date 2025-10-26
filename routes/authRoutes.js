@@ -34,11 +34,12 @@ router.get('/success', (req, res) => {
 
     //HTML response
     res.send(`
-      <h2>✅ Welcome, ${user.displayName}!</h2>
+      <h2>📚 Welcome, ${user.displayName}!</h2>
+      <p>Google Login Success!</p>
       <p><strong>User ID:</strong> ${user._id}</p>
       <p><strong>Email:</strong> ${user.email}</p>
       <hr>
-      <p><a href="/book/${user._id}">📚 View Your Book List</a></p>
+      <p><a href="/book">📚 View Your Book List</a></p>
       <p><a href="/api-docs" target="_blank">🧭 Open API Docs (Swagger)</a></p>
       <p><a href="/auth/logout">🚪 Logout</a></p>
     `);
