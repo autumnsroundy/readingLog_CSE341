@@ -11,15 +11,23 @@
     }
   ],
   "paths": {
-    "/books": {
+    "/book": {
       "get": {
-        "summary": "Get all books",
+        "summary": "Get all books belonging to the logged-in user",
         "tags": [
           "Books"
         ],
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Returns all books"
+            "description": "Returns all books for the logged-in user"
+          },
+          "401": {
+            "description": "Not authenticated"
           },
           "500": {
             "description": "Server error"
@@ -27,9 +35,14 @@
         }
       },
       "post": {
-        "summary": "Add a new book",
+        "summary": "Add a new book for the logged-in user",
         "tags": [
           "Books"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          }
         ],
         "requestBody": {
           "required": true,
@@ -72,17 +85,25 @@
           "400": {
             "description": "Invalid input data"
           },
+          "401": {
+            "description": "Not authenticated"
+          },
           "500": {
             "description": "Server error"
           }
         }
       }
     },
-    "/books/{id}": {
+    "/book/{id}": {
       "get": {
-        "summary": "Get a book by ID",
+        "summary": "Get a single book by ID (only if owned by the logged-in user)",
         "tags": [
           "Books"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          }
         ],
         "parameters": [
           {
@@ -101,8 +122,11 @@
           "400": {
             "description": "Invalid book ID"
           },
+          "401": {
+            "description": "Not authenticated"
+          },
           "404": {
-            "description": "Book not found"
+            "description": "Book not found or unauthorized"
           },
           "500": {
             "description": "Server error"
@@ -110,9 +134,14 @@
         }
       },
       "put": {
-        "summary": "Update a book by ID",
+        "summary": "Update a book by ID (only if owned by the logged-in user)",
         "tags": [
           "Books"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          }
         ],
         "parameters": [
           {
@@ -139,10 +168,13 @@
             "description": "Book updated successfully"
           },
           "400": {
-            "description": "Invalid input data or book ID"
+            "description": "Invalid input or book ID"
+          },
+          "401": {
+            "description": "Not authenticated"
           },
           "404": {
-            "description": "Book not found"
+            "description": "Book not found or unauthorized"
           },
           "500": {
             "description": "Server error"
@@ -150,9 +182,14 @@
         }
       },
       "delete": {
-        "summary": "Delete a book by ID",
+        "summary": "Delete a book by ID (only if owned by the logged-in user)",
         "tags": [
           "Books"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          }
         ],
         "parameters": [
           {
@@ -171,8 +208,11 @@
           "400": {
             "description": "Invalid book ID"
           },
+          "401": {
+            "description": "Not authenticated"
+          },
           "404": {
-            "description": "Book not found"
+            "description": "Book not found or unauthorized"
           },
           "500": {
             "description": "Server error"
